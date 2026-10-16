@@ -1201,9 +1201,9 @@ body {
         display: flex;
     }
 
-    .main-nav a:not(.header-cta-btn) {
-        display: none;
-    }
+    .main-nav > a:not(.header-cta-btn) {
+    display: none;
+}
 }
 
 /* ==========================================
