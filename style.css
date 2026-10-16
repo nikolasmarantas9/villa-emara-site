@@ -3686,7 +3686,7 @@ footer {
         justify-content: flex-end;
     }
 
-    .main-nav a:not(.header-cta-btn) {
+    .main-nav > a:not(.header-cta-btn) {
         display: none;
     }
 
