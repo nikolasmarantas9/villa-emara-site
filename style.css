@@ -1,0 +1,4187 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+    --bg-main: #060606;
+    --bg-card: #101010;
+    --bg-header: rgba(6, 6, 6, 0.92);
+    --gold: #d4af37;
+    --gold-bright: #f3e5ab;
+    --text-light: #f8f8f8;
+    --text-muted: #a0a0a0;
+    --border-color: rgba(212, 175, 55, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.03em;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    line-height: 1.7;
+    padding-top: 90px;
+    padding-bottom: 50px;
+}
+
+/* Header */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-header);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.logo-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.3rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--gold);
+}
+
+/* Luxury Language Dropdown */
+.lang-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-main-btn {
+    background: transparent;
+    color: var(--gold);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    transition: opacity 0.2s;
+}
+
+.lang-main-btn:hover {
+    opacity: 0.8;
+}
+
+.globe-icon {
+    font-size: 0.9rem;
+}
+
+/* Refined premium language dropdown */
+.lang-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 125%;
+    min-width: 190px;
+    background: #090909;
+    border: 1px solid rgba(212, 175, 55, 0.42);
+    border-radius: 12px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.72), 0 0 0 1px rgba(212, 175, 55, 0.04);
+    z-index: 1000;
+    overflow: hidden;
+    padding: 7px;
+    backdrop-filter: blur(12px);
+}
+
+.lang-dropdown-content.show {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    animation: langMenuIn 160ms ease-out;
+}
+
+@keyframes langMenuIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: #f2ead6;
+    padding: 9px 10px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.35px;
+    line-height: 1.35;
+    border-radius: 8px;
+    transition: background-color 180ms ease, color 180ms ease;
+}
+
+.lang-option:hover,
+.lang-option.active {
+    background-color: rgba(212, 175, 55, 0.14);
+    color: #fff8e5;
+}
+
+.lang-option.active::after {
+    content: "✓";
+    margin-left: auto;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.lang-code {
+    flex: 0 0 22px;
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.6px;
+    color: var(--gold);
+    opacity: 0.95;
+}
+
+.lang-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.94rem;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+}
+
+@media (max-width: 600px) {
+    .lang-dropdown-content {
+        min-width: 175px;
+        right: -4px;
+    }
+    .lang-option { padding: 9px 8px; }
+}
+
+.header-cta-btn {
+    background-color: var(--gold) !important;
+    color: var(--bg-main) !important;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.header-cta-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--gold-bright) !important;
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 80px 20px 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.location-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid var(--border-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero-section h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+}
+
+.hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.hero-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 35px;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 0 auto 35px;
+}
+
+.rating-badge .stars {
+    color: var(--gold);
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-primary {
+    background-color: var(--gold);
+    color: var(--bg-main);
+    padding: 13px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--gold-bright);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    padding: 13px 26px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: border-color 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: var(--gold);
+}
+
+/* Property Section */
+.property-section {
+    padding: 90px 20px;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+}
+
+.property-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.welcome-tag {
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.property-left h2 {
+    font-size: 2.8rem;
+    color: var(--text-light);
+}
+
+.property-right p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    background: #060606;
+    border: 1px solid var(--border-color);
+    padding: 18px 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-item h2 {
+    color: var(--gold);
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* Gallery Section & Lightbox */
+.gallery-section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-section h2 {
+    font-size: 3.2rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.gallery-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--gold);
+    color: var(--bg-main);
+    font-weight: 600;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    height: 230px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gallery-item img:hover {
+    transform: scale(1.08);
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(4, 4, 4, 0.95);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-modal.active {
+    display: flex;
+}
+
+.lightbox-modal img {
+    max-width: 85%;
+    max-height: 85vh;
+    border-radius: 10px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.25);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: var(--gold);
+    font-size: 45px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lightbox-close:hover {
+    color: #fff;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--gold);
+    padding: 15px 20px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    transition: 0.3s;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+.lightbox-prev {
+    left: 30px;
+}
+
+.lightbox-next {
+    right: 30px;
+}
+
+/* Amenities Section */
+.amenities-section {
+    padding: 90px 20px;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.amenities-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.amenities-section h2 {
+    font-size: 3.2rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.amenities-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 50px;
+    font-style: italic;
+}
+
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+.amenity-card {
+    background: #060606;
+    border: 1px solid var(--border-color);
+    padding: 22px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.amenity-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+}
+
+.amenity-icon {
+    font-size: 1.5rem;
+}
+
+.amenity-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Location Section */
+.location-section {
+    padding: 100px 20px;
+}
+
+.location-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.location-info h2 {
+    font-size: 2.8rem;
+    color: var(--gold);
+    margin: 10px 0;
+}
+
+.location-address {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.distances-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.distance-item {
+    display: flex;
+    justify-content: space-between;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: border-color 0.3s;
+}
+
+.distance-item:hover {
+    border-color: var(--gold);
+}
+
+.distance-left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.distance-km {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.location-map {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    min-height: 420px;
+}
+
+/* Host Section */
+.host-section {
+    padding: 90px 20px;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.host-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.host-tag {
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.host-avatar {
+    width: 85px;
+    height: 85px;
+    background: var(--gold);
+    color: var(--bg-main);
+    font-weight: 700;
+    font-size: 1.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.host-name {
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.host-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.host-languages {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 100px 20px;
+}
+
+.reviews-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.overall-rating-badge {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 15px 25px;
+    border-radius: 12px;
+    width: fit-content;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-user-info {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.2);
+    color: var(--gold);
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-author {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.review-country {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.review-score {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.review-text {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+}
+
+.review-date {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.review-form-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.review-form-container h3 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.review-form-sub {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group textarea {
+    background: #060606;
+    border: 1px solid var(--border-color);
+    padding: 12px 14px;
+    border-radius: 6px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+.score-slider {
+    width: 100%;
+    accent-color: var(--gold);
+}
+
+.submit-review-btn {
+    background: var(--gold);
+    color: var(--bg-main);
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.submit-review-btn:hover {
+    background: var(--gold-bright);
+}
+
+/* Booking Section */
+.booking-section {
+    padding: 100px 20px 120px;
+    background-color: var(--bg-main);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.booking-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.booking-section h2 {
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.booking-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+.booking-card {
+    background-color: #0b0b0b;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    padding: 45px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    text-align: left;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 2.2fr 1fr 1fr;
+    gap: 20px;
+}
+
+.grid-3-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.form-field input {
+    background-color: #050505;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-light);
+    outline: none;
+    font-size: 0.9rem;
+}
+
+.form-field input:focus {
+    border-color: var(--gold);
+}
+
+.dates-range-box input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.counter-box {
+    background-color: #050505;
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cnt-btn {
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.cnt-num {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.contact-header-label {
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.btn-chat {
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+}
+
+.btn-chat:hover {
+    opacity: 0.9;
+}
+
+.btn-wa {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.btn-vb {
+    background-color: #7360F2;
+    color: #fff;
+}
+
+.btn-cl {
+    background-color: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: var(--text-light);
+}
+
+.booking-footer-note {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Quick Chat Drawer Widget CSS */
+.quick-chat-widget {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    z-index: 1500;
+}
+
+.chat-floating-btn {
+    width: 55px;
+    height: 55px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);
+    transition: transform 0.3s, background 0.3s;
+}
+
+.chat-floating-btn:hover {
+    transform: scale(1.1);
+    background: var(--gold-bright);
+}
+
+.chat-drawer {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 280px;
+    background-color: #0d0d0d;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+    overflow: hidden;
+    animation: fadeInDrawer 0.3s ease-out;
+}
+
+.chat-drawer.show {
+    display: block;
+}
+
+@keyframes fadeInDrawer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chat-header {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.chat-close {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.chat-close:hover {
+    color: #fff;
+}
+
+.chat-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chat-body p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+}
+
+.chat-option-btn {
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.chat-option-btn:hover {
+    opacity: 0.9;
+}
+
+.wa-opt {
+    background-color: #25d366;
+    color: #fff;
+}
+
+.vb-opt {
+    background-color: #7360F2;
+    color: #fff;
+}
+
+.cl-opt {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+}
+
+/* Mobile Sticky Bottom Booking Bar */
+.mobile-bottom-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.96);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 12px 20px;
+    z-index: 998;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.mob-bar-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.mob-bar-book {
+    background-color: var(--gold);
+    color: #000;
+}
+
+.mob-bar-wa {
+    background-color: #25d366;
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-bar {
+        display: flex;
+    }
+
+    .main-nav a:not(.header-cta-btn) {
+        display: none;
+    }
+}
+
+/* ==========================================
+   VILLA EMARA - CALENDAR DESIGN
+   ========================================== */
+
+/* Πεδίο ημερομηνιών */
+#dateRangePicker {
+    background: #080808 !important;
+    color: #d4af37 !important;
+    border: 1px solid #80651b !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+}
+
+/* Κύριο ημερολόγιο */
+.flatpickr-calendar {
+    background: #080808 !important;
+    border: 1px solid #493a0d !important;
+    border-radius: 14px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7) !important;
+    font-family: Arial, sans-serif !important;
+    width: 552px !important;
+    max-width: calc(100vw - 24px) !important;
+    padding: 10px !important;
+}
+
+/* Μήνες και εσωτερικά τμήματα */
+.flatpickr-months,
+.flatpickr-month,
+.flatpickr-weekdays,
+.flatpickr-weekdaycontainer,
+.flatpickr-innerContainer,
+.flatpickr-rContainer,
+.flatpickr-days {
+    background: #080808 !important;
+}
+
+.flatpickr-current-month,
+.flatpickr-current-month .cur-month,
+.flatpickr-current-month input.cur-year {
+    color: #d4af37 !important;
+    fill: #d4af37 !important;
+}
+
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    color: #d4af37 !important;
+    fill: #d4af37 !important;
+}
+
+.flatpickr-prev-month svg,
+.flatpickr-next-month svg {
+    fill: #d4af37 !important;
+}
+
+/* Ημέρες εβδομάδας */
+.flatpickr-weekday {
+    color: #d4af37 !important;
+    font-size: 11px !important;
+}
+
+/* Ημερομηνίες */
+.flatpickr-day {
+    color: #f1c944 !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 0 !important;
+    font-size: 13px !important;
+    max-width: 14.2857%;
+}
+
+/* Hover */
+.flatpickr-day:hover {
+    color: #080808 !important;
+    background: #d4af37 !important;
+    border-color: #d4af37 !important;
+    border-radius: 6px !important;
+}
+
+/* Ημερομηνίες εκτός μήνα */
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay {
+    color: #62542e !important;
+}
+
+/* Ενιαία λωρίδα επιλεγμένου διαστήματος */
+.flatpickr-day.inRange,
+.flatpickr-day.prevMonthDay.inRange,
+.flatpickr-day.nextMonthDay.inRange {
+    background: #30260e !important;
+    color: #f1c944 !important;
+    border-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Ημερομηνία άφιξης */
+.flatpickr-day.startRange,
+.flatpickr-day.startRange:hover {
+    background: #d4af37 !important;
+    color: #080808 !important;
+    border-color: #d4af37 !important;
+    border-radius: 10px 0 0 10px !important;
+    font-weight: bold !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* Ημερομηνία αναχώρησης */
+.flatpickr-day.endRange,
+.flatpickr-day.endRange:hover {
+    background: #d4af37 !important;
+    color: #080808 !important;
+    border-color: #d4af37 !important;
+    border-radius: 0 10px 10px 0 !important;
+    font-weight: bold !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* Όταν επιλεγεί μόνο μία ημερομηνία */
+.flatpickr-day.startRange.endRange,
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover {
+    background: #d4af37 !important;
+    color: #080808 !important;
+    border-color: #d4af37 !important;
+    border-radius: 10px !important;
+}
+
+/* Σημερινή ημερομηνία */
+.flatpickr-day.today {
+    border-color: #d4af37 !important;
+}
+
+
+/* Μη διαθέσιμες ημερομηνίες από το Booking.com */
+.flatpickr-day.flatpickr-disabled,
+.flatpickr-day.notAllowed,
+.flatpickr-day.disabled {
+    color: #8a7b59 !important;
+    background: rgba(120, 107, 75, 0.12) !important;
+    border-color: transparent !important;
+    text-decoration: line-through !important;
+    opacity: 0.75 !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+}
+
+
+/* Δύο μήνες δίπλα-δίπλα σε desktop */
+@media (min-width: 601px) {
+    .flatpickr-calendar.multiMonth {
+        width: 552px !important;
+    }
+
+    .flatpickr-calendar.multiMonth .flatpickr-innerContainer,
+    .flatpickr-calendar.multiMonth .flatpickr-rContainer,
+    .flatpickr-calendar.multiMonth .flatpickr-days {
+        width: 100% !important;
+    }
+
+    .flatpickr-calendar.multiMonth .dayContainer {
+        flex: 0 0 50% !important;
+        width: 50% !important;
+        min-width: 0 !important;
+        max-width: 50% !important;
+    }
+}
+
+/* Κινητά: εμφάνιση ενός μήνα */
+@media (max-width: 600px) {
+    .flatpickr-calendar {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+    }
+
+    .flatpickr-calendar .dayContainer {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .flatpickr-calendar .dayContainer + .dayContainer {
+        display: none !important;
+    }
+}
+
+/* Footer & Floating */
+.footer {
+    background-color: #040404;
+    padding: 50px 20px 90px;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.footer-info h3 {
+    color: var(--gold);
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    font-family: 'Great Vibes', cursive;
+}
+
+.footer-info p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.floating-buttons {
+    position: fixed;
+    bottom: 75px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 997;
+}
+
+.floating-call,
+.back-to-top {
+    width: 45px;
+    height: 45px;
+    background: var(--gold);
+    color: var(--bg-main);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.floating-call:hover,
+.back-to-top:hover {
+    background: var(--gold-bright);
+    transform: scale(1.08);
+}
+
+
+/* Κατάσταση συγχρονισμού ημερολογίου — ακολουθεί το υπάρχον μαύρο/χρυσό θέμα */
+.calendar-sync-status {
+    margin: 7px 2px 0;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.45;
+}
+.calendar-sync-status.is-ready { color: #b8d8ad; }
+.calendar-sync-status.is-error { color: #e6a09a; }
+#dateRangePicker:disabled { cursor: not-allowed; opacity: 0.65; }
+.calendar-sync-retry {
+    margin: 7px 2px 0;
+    padding: 5px 11px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: transparent;
+    color: var(--gold-bright);
+    font: inherit;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.calendar-sync-retry:hover {
+    background: var(--gold);
+    color: #080808;
+}
+
+/* ==========================================
+   VILLA EMARA — CALENDAR ENHANCEMENTS
+   ========================================== */
+
+.calendar-selection-summary {
+    margin-top: 8px;
+    min-height: 22px;
+    color: var(--gold-bright);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.calendar-sync-status {
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.calendar-sync-status[data-state="ready"] {
+    color: #b9e7bd;
+}
+
+.calendar-sync-status[data-state="error"] {
+    color: #ff9b9b;
+}
+
+.calendar-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    margin-top: 12px;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.calendar-legend[hidden] {
+    display: none !important;
+}
+
+.calendar-legend > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+}
+
+.legend-available {
+    background: var(--gold);
+}
+
+.legend-selected {
+    background: var(--gold-bright);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.25);
+}
+
+.legend-unavailable {
+    background: #706342;
+}
+
+/* Ημερολόγιο: ευκολότερο πάτημα σε κινητά */
+@media (max-width: 640px) {
+    .flatpickr-calendar.villa-emara-calendar,
+    .flatpickr-calendar {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        padding: 8px !important;
+    }
+
+    .flatpickr-calendar .flatpickr-day {
+        height: 40px !important;
+        line-height: 40px !important;
+    }
+
+    .calendar-legend {
+        gap: 8px 12px;
+        font-size: 0.75rem;
+    }
+
+    .calendar-selection-summary {
+        font-size: 0.85rem;
+    }
+}
+/* Ώρα τελευταίου επιτυχημένου συγχρονισμού */
+.calendar-last-updated {
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.calendar-last-updated[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   VILLA EMARA — FLATPICKR TYPOGRAPHY
+   Modern / Minimal — Inter
+   ========================================= */
+
+/* Βασική γραμματοσειρά ημερολογίου */
+.flatpickr-calendar,
+.flatpickr-calendar * {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Τίτλοι μηνών */
+.flatpickr-current-month {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0 !important;
+}
+
+/* Ονόματα ημερών εβδομάδας */
+.flatpickr-weekday {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+}
+
+/* Αριθμοί ημερομηνιών */
+.flatpickr-day {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+}
+
+/* Διατήρηση καθαρής εμφάνισης στις επιλεγμένες ημερομηνίες */
+.flatpickr-day.selected,
+.flatpickr-day.startRange,
+.flatpickr-day.endRange {
+    font-weight: 500 !important;
+}
+
+
+/* ===== Villa Emara: Luxury Black & Gold Reviews Grid ===== */
+#reviews.reviews-section {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(64px, 8vw, 110px) 20px;
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(212, 175, 55, 0.075), transparent 55%),
+        var(--bg-main);
+    border-top: 1px solid rgba(212, 175, 55, 0.16);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+}
+
+#reviews .reviews-container {
+    max-width: 1200px;
+}
+
+#reviews .overall-rating-badge {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0 auto 34px;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #15130d, #0c0c0c);
+    border: 1px solid rgba(212, 175, 55, 0.48);
+    border-radius: 999px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+}
+
+#reviews .overall-rating-badge small {
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+}
+
+#reviews .reviews-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 46px;
+}
+
+#reviews .reviews-list-container {
+    width: 100%;
+    min-width: 0;
+}
+
+#reviews .reviews-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 285px), 1fr));
+    align-items: stretch;
+    gap: 22px;
+}
+
+#reviews .review-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 230px;
+    padding: 28px 26px 24px;
+    overflow: hidden;
+    background: linear-gradient(145deg, rgba(22, 21, 17, 0.98), rgba(11, 11, 11, 0.98) 70%);
+    border: 1px solid rgba(212, 175, 55, 0.26);
+    border-radius: 14px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2);
+    transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+}
+
+#reviews .review-card::before {
+    content: '“';
+    position: absolute;
+    top: 4px;
+    right: 17px;
+    color: rgba(212, 175, 55, 0.13);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5.5rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+#reviews .review-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.68);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), 0 0 22px rgba(212, 175, 55, 0.055);
+}
+
+#reviews .review-header {
+    position: relative;
+    z-index: 1;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 18px;
+}
+
+#reviews .review-user-info {
+    min-width: 0;
+    gap: 12px;
+}
+
+#reviews .review-avatar {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.22), rgba(212, 175, 55, 0.06));
+    color: var(--gold-bright);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+}
+
+#reviews .review-author {
+    overflow-wrap: anywhere;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+}
+
+#reviews .review-score {
+    flex-shrink: 0;
+    padding: 5px 8px;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 7px;
+    background: rgba(212, 175, 55, 0.07);
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+#reviews .review-text {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    margin: 0 0 20px;
+    color: #dedbd2;
+    font-size: 1.12rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+#reviews .review-date {
+    display: block;
+    padding-top: 13px;
+    border-top: 1px solid rgba(212, 175, 55, 0.14);
+    color: #8f8b80;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+}
+
+#reviews .review-form-container {
+    width: min(100%, 760px);
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 38px);
+    background: linear-gradient(145deg, #12110d, #0b0b0b 72%);
+    border: 1px solid rgba(212, 175, 55, 0.36);
+    border-radius: 16px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.25);
+}
+
+#reviews .review-form-container h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3vw, 2.15rem);
+    line-height: 1.2;
+}
+
+#reviews .review-form-sub {
+    line-height: 1.6;
+}
+
+#reviews .form-group input,
+#reviews .form-group textarea {
+    width: 100%;
+    border-color: rgba(212, 175, 55, 0.23);
+    border-radius: 8px;
+    transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+#reviews .form-group input:focus,
+#reviews .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.09);
+}
+
+#reviews #scoreSlider {
+    width: 100%;
+    accent-color: var(--gold);
+    cursor: pointer;
+}
+
+#reviews .submit-review-btn {
+    border-radius: 8px;
+    transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+#reviews .submit-review-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.15);
+}
+
+#reviews .reviews-empty,
+#reviews .reviews-load-error {
+    grid-column: 1 / -1;
+    padding: 28px;
+    border: 1px dashed rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    #reviews.reviews-section {
+        padding: 64px 16px;
+    }
+
+    #reviews .reviews-list {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    #reviews .review-card {
+        min-height: 0;
+        padding: 23px 21px 20px;
+    }
+
+    #reviews .review-header {
+        flex-wrap: wrap;
+    }
+
+    #reviews .review-text {
+        font-size: 1.08rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #reviews .review-card,
+    #reviews .submit-review-btn {
+        transition: none;
+    }
+
+    #reviews .review-card:hover,
+    #reviews .submit-review-btn:hover {
+        transform: none;
+    }
+}
+
+/* =====================================
+   VILLA EMARA — LUXURY REVIEW FORM
+   ===================================== */
+#reviews .review-form-container {
+    padding: clamp(24px, 3vw, 42px);
+    background: radial-gradient(circle at top right, rgba(212,175,55,.07), transparent 40%), linear-gradient(145deg, #12110e, #080808);
+    border: 1px solid rgba(212,175,55,.35);
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.28);
+}
+#reviews .review-form-container h3 {
+    margin-bottom: 10px;
+    color: #f3e5ab;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    line-height: 1.2;
+}
+#reviews .review-form-sub { margin-bottom: 28px; color: #aaa69b; font-size: .95rem; }
+#reviews #addReviewForm { display: flex; flex-direction: column; gap: 20px; }
+#reviews #addReviewForm .form-group { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+#reviews #addReviewForm .form-group > label { color: #ded7c4; font-size: .9rem; font-weight: 500; letter-spacing: .025em; }
+#reviews .review-name-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+#reviews #revName, #reviews #revSurname, #reviews #revComment {
+    width: 100%; box-sizing: border-box; padding: 14px 15px;
+    border: 1px solid rgba(212,175,55,.25); border-radius: 9px;
+    background: rgba(5,5,5,.8); color: #f8f8f8; font: inherit;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+#reviews #revName, #reviews #revSurname { min-height: 49px; }
+#reviews #revComment { min-height: 135px; resize: vertical; line-height: 1.7; }
+#reviews #revName::placeholder, #reviews #revSurname::placeholder, #reviews #revComment::placeholder { color: #777368; }
+#reviews #revName:focus, #reviews #revSurname:focus, #reviews #revComment:focus { outline: none; border-color: #d4af37; box-shadow: 0 0 0 3px rgba(212,175,55,.1); }
+#reviews .interactive-stars { display: flex; align-items: center; gap: 9px; margin-top: 3px; }
+#reviews .rating-star {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 43px; height: 43px; padding: 0;
+    border: 1px solid rgba(212,175,55,.22); border-radius: 9px;
+    background: #0b0b0b; color: #5d5847; font-size: 1.65rem; line-height: 1; cursor: pointer;
+    transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease;
+}
+#reviews .rating-star:hover { transform: translateY(-2px); border-color: #d4af37; }
+#reviews .rating-star.is-selected { color: #e0b936; text-shadow: 0 0 12px rgba(212,175,55,.2); background: rgba(212,175,55,.06); border-color: rgba(212,175,55,.55); }
+#reviews .rating-star:focus-visible { outline: 2px solid #f3e5ab; outline-offset: 3px; }
+#reviews #scoreVal { color: #f3d675; font-weight: 700; }
+#reviews .submit-review-btn { width: 100%; min-height: 51px; margin-top: 3px; padding: 14px 20px; border: 1px solid #e2c65c; border-radius: 9px; background: linear-gradient(135deg,#e1bf45,#c6a12b); color: #111; font-family: Inter,sans-serif; font-size: .92rem; font-weight: 700; letter-spacing: .025em; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, filter .2s ease; }
+#reviews .submit-review-btn:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(1.08); box-shadow: 0 8px 24px rgba(212,175,55,.18); }
+#reviews .submit-review-btn:disabled { opacity: .6; cursor: wait; }
+@media (max-width: 650px) { #reviews .review-name-row { grid-template-columns: 1fr; } #reviews .review-form-container { padding: 23px 18px; } #reviews .interactive-stars { gap: 7px; } #reviews .rating-star { width: 40px; height: 40px; } }
+@media (prefers-reduced-motion: reduce) { #reviews .rating-star, #reviews .submit-review-btn { transition: none; } }
+/* ==========================================
+   VILLA EMARA — LUXURY LOCATION REDESIGN
+   Visual changes only; preserve map behavior
+   ========================================== */
+
+#location .location-container {
+    gap: 44px;
+    align-items: center;
+}
+
+#location .location-container h2 {
+    color: #e0bd48;
+    letter-spacing: 0.025em;
+    margin-bottom: 18px;
+    text-shadow: 0 0 22px rgba(212, 175, 55, 0.08);
+}
+
+#location .location-container h2::after {
+    content: "";
+    display: block;
+    width: 76px;
+    height: 2px;
+    margin-top: 15px;
+    background: linear-gradient(
+        90deg,
+        #d4af37,
+        rgba(212, 175, 55, 0.08)
+    );
+}
+
+#location .location-container p {
+    color: #bdb8ab;
+    line-height: 1.9;
+}
+
+/* Nearby places */
+#location .location-container .location-item {
+    border: 1px solid rgba(212, 175, 55, 0.24);
+    border-radius: 10px;
+    background: linear-gradient(
+        115deg,
+        rgba(20, 19, 15, 0.98),
+        rgba(10, 10, 10, 0.98)
+    );
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+#location .location-container .location-item:hover {
+    border-color: rgba(212, 175, 55, 0.65);
+    background: linear-gradient(
+        115deg,
+        rgba(32, 28, 17, 0.98),
+        rgba(12, 12, 12, 0.98)
+    );
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* Distance labels */
+#location .location-container .location-item strong,
+#location .location-container .location-item span {
+    color: #e0bd48;
+}
+
+/* Embedded map frame */
+#location .map-container,
+#location .location-map,
+#location iframe {
+    border-radius: 15px;
+}
+
+#location .map-container,
+#location .location-map {
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.28),
+        0 0 22px rgba(212, 175, 55, 0.035);
+}
+
+#location iframe {
+    display: block;
+    width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #location .location-container {
+        gap: 26px;
+    }
+
+    #location .location-container .location-item {
+        padding: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #location .location-container .location-item {
+        transition: none;
+
+    }
+}
+/* Google Maps — σωστό ύψος και εμφάνιση */
+#location iframe {
+    display: block;
+    width: 100%;
+    height: 420px;
+    min-height: 420px;
+    border: 0;
+    border-radius: 14px;
+}
+
+#location .map-container,
+#location .location-map {
+    height: 420px;
+    min-height: 420px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+/* Villa Emara — Google Maps */
+#location iframe {
+    display: block;
+    width: 100%;
+    height: 420px;
+    min-height: 420px;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 14px;
+}
+
+#location .map-container,
+#location .location-map {
+    width: 100%;
+    min-height: 420px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    #location iframe {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    #location .map-container,
+    #location .location-map {
+        min-height: 350px;
+    }
+}
+/* =========================================
+   VILLA EMARA — LUXURY HERO REDESIGN
+   CSS ONLY — SAFE OVERRIDES
+========================================= */
+
+/* 1. Αρχική ενότητα */
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    width: min(100% - 40px, 1180px);
+    margin: 0 auto;
+    padding: clamp(65px, 8vw, 105px) 20px 85px;
+    text-align: center;
+}
+
+/* Διακριτικό χρυσό φως πίσω από το περιεχόμενο */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 5%;
+    left: 50%;
+    width: min(720px, 90%);
+    height: 390px;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(212, 175, 55, 0.075) 0%,
+        rgba(212, 175, 55, 0.025) 42%,
+        transparent 72%
+    );
+    pointer-events: none;
+}
+
+/* 2. Τοποθεσία πάνω από τον τίτλο */
+.hero-section .location-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    padding: 10px 20px;
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 50px;
+    background: rgba(212, 175, 55, 0.055);
+    color: var(--gold-bright);
+    font-size: 0.76rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.hero-section .location-badge:hover {
+    background: rgba(212, 175, 55, 0.10);
+    border-color: rgba(212, 175, 55, 0.55);
+}
+
+/* 3. Κεντρικός τίτλος */
+.hero-section h1 {
+    margin: 0 auto 24px;
+    color: var(--gold);
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    text-shadow: 0 0 32px rgba(212, 175, 55, 0.12);
+}
+
+/* 4. Υπότιτλος */
+.hero-section .hero-subtitle {
+    max-width: 760px;
+    margin: 0 auto 25px;
+    color: #c4c0b7;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+/* 5. Περιγραφή της βίλας */
+.hero-section > p {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+/* 6. Βαθμολογία */
+.hero-section .rating-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 auto 34px;
+    padding: 13px 22px;
+    border: 1px solid rgba(212, 175, 55, 0.30);
+    border-radius: 10px;
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.08),
+        rgba(255, 255, 255, 0.015)
+    );
+    color: var(--text-light);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+
+/* 7. Κουμπιά αρχικής */
+.hero-section .btn-primary,
+.hero-section .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 14px 28px;
+    border-radius: 7px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.hero-section .btn-primary {
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: #080808;
+    box-shadow: 0 6px 22px rgba(212, 175, 55, 0.12);
+}
+
+.hero-section .btn-primary:hover {
+    transform: translateY(-3px);
+    background: var(--gold-bright);
+    border-color: var(--gold-bright);
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.22);
+}
+
+.hero-section .btn-secondary {
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: rgba(255, 255, 255, 0.015);
+    color: var(--text-light);
+}
+
+.hero-section .btn-secondary:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.07);
+    color: var(--gold-bright);
+}
+
+/* 8. Πιο ομαλή εμφάνιση χωρίς απότομες κινήσεις */
+@media (prefers-reduced-motion: reduce) {
+    .hero-section *,
+    .hero-section *::before,
+    .hero-section *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* 9. Tablets */
+@media (max-width: 900px) {
+    .hero-section {
+        padding-top: 70px;
+        padding-bottom: 65px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(3.8rem, 10vw, 5.5rem);
+    }
+}
+
+/* 10. Κινητά */
+@media (max-width: 600px) {
+    .hero-section {
+        width: 100%;
+        padding: 58px 20px 55px;
+    }
+
+    .hero-section .location-badge {
+        margin-bottom: 23px;
+        padding: 9px 15px;
+        font-size: 0.68rem;
+        letter-spacing: 1.5px;
+    }
+
+    .hero-section h1 {
+        margin-bottom: 20px;
+        font-size: clamp(3.5rem, 15vw, 4.6rem);
+        line-height: 1.2;
+    }
+
+    .hero-section .hero-subtitle {
+        margin-bottom: 20px;
+        font-size: 1.35rem;
+    }
+
+    .hero-section > p {
+        font-size: 0.93rem;
+        line-height: 1.8;
+    }
+
+    .hero-section .rating-badge {
+        margin-bottom: 27px;
+        padding: 11px 15px;
+        font-size: 0.9rem;
+    }
+
+    .hero-section .btn-primary,
+    .hero-section .btn-secondary {
+        width: 100%;
+        min-height: 52px;
+        padding: 13px 18px;
+    }
+}
+
+/* 11. Μικρές οθόνες */
+@media (max-width: 380px) {
+    .hero-section {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 3.25rem;
+    }
+}
+/* Hero spacing refinement */
+.hero-section {
+    padding-top: clamp(48px, 5.5vw, 72px);
+    padding-bottom: 65px;
+}
+
+.hero-section .location-badge {
+    margin-bottom: 20px;
+}
+.hero-section h1 {
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.09);
+    margin-bottom: 20px;
+}
+.hero-section .rating-badge {
+    margin-bottom: 26px;
+}
+
+.hero-section .btn-primary,
+.hero-section .btn-secondary {
+    min-height: 50px;
+    padding: 12px 25px;
+}
+
+@media (max-height: 800px) and (min-width: 901px) {
+    .hero-section {
+        padding-top: 42px;
+        padding-bottom: 45px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(4rem, 7vw, 6rem);
+    }
+}
+/* =========================================
+   VILLA EMARA — LUXURY GALLERY REFINEMENT
+   CSS ONLY
+========================================= */
+
+.gallery {
+    gap: 22px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #101010;
+    border: 1px solid rgba(212, 175, 55, 0.16);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.55s ease;
+}
+
+@media (hover: hover) {
+    .gallery-item:hover {
+        transform: translateY(-4px);
+        border-color: rgba(212, 175, 55, 0.55);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.38);
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.045);
+    }
+}
+
+/* Μεγάλες οθόνες */
+@media (min-width: 1200px) {
+    .gallery {
+        gap: 24px;
+    }
+
+    .gallery-item img {
+        height: 270px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .gallery {
+        gap: 16px;
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+}
+
+/* Κινητά */
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .gallery-item {
+        border-radius: 10px;
+    }
+
+    .gallery-item img {
+        height: 155px;
+    }
+}
+
+/* Πολύ μικρές οθόνες */
+@media (max-width: 380px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 220px;
+    }
+}
+
+/* Προσβασιμότητα: περιορισμός κίνησης */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-item,
+    .gallery-item img {
+        transition: none;
+    }
+}
+/* =========================================
+   VILLA EMARA — PROPERTY SECTION
+   LUXURY BLACK & GOLD
+========================================= */
+
+#property {
+    padding: clamp(65px, 8vw, 105px) 24px;
+}
+
+#property .property-container {
+    width: min(100%, 1150px);
+    margin: 0 auto;
+    gap: clamp(35px, 5vw, 75px);
+    align-items: center;
+}
+
+/* Εικόνες καταλύματος */
+#property img {
+    display: block;
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+/* Τίτλοι */
+#property h2 {
+    color: var(--gold);
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: 0.02em;
+}
+
+/* Κείμενο */
+#property p {
+    color: #c2c0bb;
+    line-height: 1.95;
+    margin-bottom: 20px;
+}
+
+/* Στατιστικά χαρακτηριστικά */
+#property .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 30px;
+}
+
+#property .stat-card {
+    min-width: 0;
+    padding: 22px 12px;
+    text-align: center;
+    background: linear-gradient(
+        145deg,
+        rgba(212, 175, 55, 0.055),
+        rgba(255, 255, 255, 0.012)
+    );
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 12px;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+#property .stat-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(212, 175, 55, 0.55);
+    background: rgba(212, 175, 55, 0.07);
+}
+
+#property .stat-card h3 {
+    color: var(--gold);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 8px;
+}
+
+#property .stat-card p {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    #property {
+        padding: 65px 22px;
+    }
+
+    #property .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Κινητά */
+@media (max-width: 600px) {
+    #property {
+        padding: 50px 18px;
+    }
+
+    #property h2 {
+        margin-bottom: 18px;
+    }
+
+    #property p {
+        line-height: 1.8;
+    }
+
+    #property .stats-grid {
+        gap: 10px;
+        margin-top: 24px;
+    }
+
+    #property .stat-card {
+        padding: 18px 8px;
+        border-radius: 10px;
+    }
+}
+
+/* Σεβασμός στις ρυθμίσεις μειωμένης κίνησης */
+@media (prefers-reduced-motion: reduce) {
+    #property .stat-card {
+        transition: none;
+    }
+}
+
+/* =========================================
+   VILLA EMARA — HERO BUTTON POLISH
+   Μόνο οπτικές αλλαγές
+   ========================================= */
+
+/* Κοινή βάση για τα κουμπιά της αρχικής */
+.hero-section .btn-primary,
+.hero-section .btn-secondary {
+    position: relative;
+    overflow: hidden;
+    min-height: 54px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Κύριο κουμπί κράτησης */
+.hero-section .btn-primary {
+    background: linear-gradient(135deg, #e0bd42, #c9a52d);
+    color: #090909;
+    border: 1px solid #e3c65e;
+    box-shadow: 0 5px 18px rgba(212, 175, 55, 0.12);
+}
+
+/* Hover κύριου κουμπιού */
+.hero-section .btn-primary:hover {
+    background: linear-gradient(135deg, #f3df91, #dfbd49);
+    color: #050505;
+    transform: translateY(-3px);
+    box-shadow: 0 9px 26px rgba(212, 175, 55, 0.25);
+}
+
+/* Δευτερεύον κουμπί */
+.hero-section .btn-secondary {
+    background: rgba(255, 255, 255, 0.015);
+    color: #f5f0df;
+    border: 1px solid rgba(212, 175, 55, 0.38);
+}
+
+/* Hover δευτερεύοντος κουμπιού */
+.hero-section .btn-secondary:hover {
+    background: rgba(212, 175, 55, 0.09);
+    color: #f3d978;
+    border-color: #d4af37;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(212, 175, 55, 0.10);
+}
+
+/* Εμφανής ένδειξη όταν επιλέγονται με πληκτρολόγιο */
+.hero-section .btn-primary:focus-visible,
+.hero-section .btn-secondary:focus-visible {
+    outline: 2px solid #f3e5ab;
+    outline-offset: 4px;
+}
+
+/* Σε κινητά: χωρίς υπερβολικό hover animation */
+@media (max-width: 600px) {
+    .hero-section .btn-primary,
+    .hero-section .btn-secondary {
+        min-height: 50px;
+        padding: 13px 22px;
+        font-size: 0.9rem;
+    }
+
+    .hero-section .btn-primary:hover,
+    .hero-section .btn-secondary:hover {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-section .btn-primary,
+    .hero-section .btn-secondary {
+        transition: none;
+    }
+}
+
+/* =========================================
+   VILLA EMARA — HERO SECTION REFINEMENT
+   Βήμα 3 | Μόνο CSS
+   ========================================= */
+
+.hero-section {
+    position: relative;
+    isolation: isolate;
+    padding: 100px 24px 90px;
+    max-width: 1100px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+/* Διακριτικό φως πίσω από το κεντρικό περιεχόμενο */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 12%;
+    left: 50%;
+    width: min(760px, 90%);
+    height: 440px;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        ellipse at center,
+        rgba(212, 175, 55, 0.075) 0%,
+        rgba(212, 175, 55, 0.025) 38%,
+        transparent 72%
+    );
+    pointer-events: none;
+}
+
+/* Τίτλος Villa Emara */
+.hero-section h1 {
+    color: #e2bd43;
+    text-shadow:
+        0 0 18px rgba(212, 175, 55, 0.12),
+        0 0 42px rgba(212, 175, 55, 0.06);
+    line-height: 1.15;
+    margin: 24px 0 28px;
+}
+
+/* Κεντρικός υπότιτλος */
+.hero-section .hero-subtitle {
+    max-width: 780px;
+    margin: 0 auto 24px;
+    color: #e5dcc5;
+    line-height: 1.65;
+    text-wrap: balance;
+}
+
+/* Περιγραφικό κείμενο */
+.hero-section p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #bdb8ad;
+    line-height: 1.9;
+}
+
+/* Μικρή ετικέτα τοποθεσίας */
+.hero-section .location-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.045);
+    color: #f0d778;
+    letter-spacing: 1.8px;
+    font-size: 0.78rem;
+}
+
+/* Προσαρμογή σε μικρότερες οθόνες */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 72px 20px 64px;
+    }
+
+    .hero-section h1 {
+        margin: 22px 0;
+    }
+
+    .hero-section::before {
+        height: 340px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 56px 18px 52px;
+    }
+
+    .hero-section .location-badge {
+        padding: 8px 14px;
+        font-size: 0.7rem;
+        letter-spacing: 1.2px;
+    }
+}
+
+/* =========================================
+   VILLA EMARA — AMENITIES REFINEMENT
+   CSS ONLY
+========================================= */
+
+.amenities-section {
+    padding: clamp(60px, 7vw, 95px) 24px;
+}
+
+.amenities-section h2 {
+    margin-bottom: 18px;
+    color: var(--gold);
+    text-align: center;
+}
+
+.amenities-section .amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1150px;
+    margin: 40px auto 0;
+}
+
+.amenities-section .amenity-card {
+    position: relative;
+    min-width: 0;
+    padding: 28px 24px;
+    border: 1px solid rgba(212, 175, 55, 0.19);
+    border-radius: 13px;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.025),
+        rgba(212, 175, 55, 0.025)
+    );
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.amenities-section .amenity-card h3 {
+    margin-bottom: 10px;
+    color: #e1c15a;
+    font-size: 1.35rem;
+    line-height: 1.35;
+}
+
+.amenities-section .amenity-card p {
+    color: #b6b2a9;
+    font-size: 0.94rem;
+    line-height: 1.8;
+}
+
+.amenities-section .amenity-card i,
+.amenities-section .amenity-card .icon {
+    color: var(--gold);
+}
+
+@media (hover: hover) {
+    .amenities-section .amenity-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(212, 175, 55, 0.48);
+        background: linear-gradient(
+            145deg,
+            rgba(212, 175, 55, 0.075),
+            rgba(255, 255, 255, 0.015)
+        );
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    }
+}
+
+@media (max-width: 900px) {
+    .amenities-section .amenities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .amenities-section {
+        padding: 52px 18px;
+    }
+
+    .amenities-section .amenities-grid {
+        grid-template-columns: 1fr;
+        gap: 13px;
+        margin-top: 28px;
+    }
+
+    .amenities-section .amenity-card {
+        padding: 23px 20px;
+        border-radius: 11px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .amenities-section .amenity-card {
+        transition: none;
+    }
+}
+
+/* =========================================
+   VILLA EMARA — LOCATION REFINEMENT
+   CSS ONLY
+========================================= */
+
+#location {
+    padding: clamp(60px, 8vw, 100px) 24px;
+}
+
+#location h2 {
+    color: var(--gold);
+    margin-bottom: 24px;
+}
+
+#location .location-container {
+    width: min(100%, 1150px);
+    margin: 0 auto;
+    gap: clamp(28px, 4vw, 55px);
+    align-items: stretch;
+}
+
+/* Λίστα κοντινών σημείων */
+#location .location-item {
+    padding: 18px 20px;
+    margin-bottom: 13px;
+    border: 1px solid rgba(212, 175, 55, 0.20);
+    border-radius: 11px;
+    background: linear-gradient(
+        135deg,
+        rgba(212, 175, 55, 0.045),
+        rgba(255, 255, 255, 0.012)
+    );
+    transition:
+        border-color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+#location .location-item h3 {
+    color: #e1c15a;
+    margin-bottom: 5px;
+}
+
+#location .location-item p {
+    color: #b8b4aa;
+    line-height: 1.7;
+}
+
+@media (hover: hover) {
+    #location .location-item:hover {
+        transform: translateY(-2px);
+        border-color: rgba(212, 175, 55, 0.48);
+        background: rgba(212, 175, 55, 0.055);
+    }
+}
+
+/* Πλαίσιο χάρτη */
+#location .map-container,
+#location .location-map {
+    width: 100%;
+    min-width: 0;
+    min-height: 420px;
+    border: 1px solid rgba(212, 175, 55, 0.32);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #101010;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Ενσωματωμένος Google Maps */
+#location iframe {
+    display: block;
+    width: 100%;
+    height: 420px;
+    min-height: 420px;
+    border: 0;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    #location .location-container {
+        gap: 28px;
+    }
+}
+
+/* Κινητά */
+@media (max-width: 600px) {
+    #location {
+        padding: 52px 18px;
+    }
+
+    #location .map-container,
+    #location .location-map {
+        min-height: 350px;
+    }
+
+    #location iframe {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    #location .location-item {
+        padding: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #location .location-item {
+        transition: none;
+    }
+}
+
+/* =================================
+   BOOKING FORM — LUXURY BLACK & GOLD
+================================= */
+
+#booking input,
+#booking select,
+#booking textarea {
+    width: 100%;
+    background: #0b0b0b;
+    color: #f8f8f8;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+#booking input:focus,
+#booking select:focus,
+#booking textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+#booking input::placeholder,
+#booking textarea::placeholder {
+    color: #888;
+}
+
+#booking label {
+    display: block;
+    color: #d4af37;
+    margin-bottom: 7px;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+#booking button {
+    transition: background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
+}
+
+#booking button:hover {
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #booking input,
+    #booking select,
+    #booking textarea {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+
+/* =================================
+   BOOKING CALENDAR — BLACK & GOLD
+================================= */
+
+/* Calendar container */
+#booking .calendar,
+#booking .booking-calendar,
+#booking .flatpickr-calendar {
+    background: #101010;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 14px;
+    color: #f8f8f8;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+/* Calendar header */
+#booking .calendar-header,
+#booking .flatpickr-months {
+    background: #0b0b0b;
+    color: #d4af37;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Weekday labels */
+#booking .calendar th,
+#booking .calendar-weekdays,
+#booking .flatpickr-weekday {
+    color: #d4af37;
+    font-weight: 600;
+}
+
+/* Day cells */
+#booking .calendar td,
+#booking .calendar-day,
+#booking .flatpickr-day {
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Hover on available days */
+#booking .calendar td:hover,
+#booking .calendar-day:hover,
+#booking .flatpickr-day:hover {
+    background: rgba(212, 175, 55, 0.15);
+    color: #f3e5ab;
+    border-color: #d4af37;
+}
+
+/* Selected day */
+#booking .calendar .selected,
+#booking .calendar-day.selected,
+#booking .flatpickr-day.selected {
+    background: #d4af37;
+    color: #080808;
+    border-color: #d4af37;
+}
+
+/* Disabled days */
+#booking .calendar .disabled,
+#booking .calendar-day.disabled,
+#booking .flatpickr-day.flatpickr-disabled {
+    color: #555;
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #booking .calendar,
+    #booking .booking-calendar,
+    #booking .flatpickr-calendar {
+        max-width: 100%;
+        font-size: 0.9rem;
+    }
+}
+
+/* =================================
+   CHECK-IN / CHECK-OUT FIELDS
+================================= */
+
+#booking input[type="date"] {
+    color-scheme: dark;
+    min-height: 48px;
+    cursor: pointer;
+}
+
+#booking input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(78%) sepia(48%) saturate(550%)
+            hue-rotate(5deg) brightness(95%);
+    opacity: 0.9;
+}
+
+#booking input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+#booking input[type="date"]:hover {
+    border-color: #d4af37;
+}
+
+#booking input[type="date"]:focus {
+    border-color: #d4af37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+@media (max-width: 600px) {
+    #booking input[type="date"] {
+        width: 100%;
+        min-height: 46px;
+        font-size: 16px;
+    }
+}
+
+/* =================================
+   BOOKING BUTTONS & PRICE
+================================= */
+
+/* Booking buttons */
+#booking button,
+#booking .btn-primary,
+#booking .booking-btn {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+/* Gold hover effect */
+#booking .btn-primary:hover,
+#booking .booking-btn:hover {
+    background: #f3e5ab;
+    color: #080808;
+    border-color: #f3e5ab;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Total price area */
+#booking .total-price,
+#booking .booking-total,
+#booking .price-summary {
+    background: rgba(212, 175, 55, 0.06);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-top: 20px;
+}
+
+/* Price amount */
+#booking .total-price strong,
+#booking .booking-total strong,
+#booking .price-summary strong {
+    color: #d4af37;
+    font-size: 1.35rem;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #booking .total-price,
+    #booking .booking-total,
+    #booking .price-summary {
+        padding: 15px;
+    }
+
+    #booking button {
+        max-width: 100%;
+    }
+}
+
+/* =================================
+   BOOKING CARD — LUXURY FINISH
+================================= */
+
+#booking .booking-card,
+#booking .booking-container,
+#booking .booking-form-container {
+    background: linear-gradient(
+        145deg,
+        #111111 0%,
+        #090909 100%
+    );
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+/* Section title */
+#booking h2,
+#booking h3 {
+    color: #f3e5ab;
+    letter-spacing: 0.04em;
+}
+
+/* Subtle divider */
+#booking hr {
+    border: 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.22);
+    margin: 22px 0;
+}
+
+/* Form spacing */
+#booking .grid-2,
+#booking .grid-3 {
+    row-gap: 20px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #booking .booking-card,
+    #booking .booking-container,
+    #booking .booking-form-container {
+        border-radius: 12px;
+        padding: 22px 16px;
+    }
+}
+
+/* =================================
+   BOOKING FORM — LABELS & TEXT
+================================= */
+
+#booking label {
+    color: #d4af37;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+}
+
+#booking small,
+#booking .form-hint,
+#booking .help-text {
+    color: #a0a0a0;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+#booking p {
+    line-height: 1.7;
+}
+
+#booking input:focus-visible,
+#booking select:focus-visible,
+#booking textarea:focus-visible,
+#booking button:focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 3px;
+}
+
+/* Improve readability on small screens */
+@media (max-width: 600px) {
+    #booking label {
+        font-size: 0.88rem;
+    }
+
+    #booking small,
+    #booking .form-hint,
+    #booking .help-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* =================================
+   BOOKING FORM — HOVER POLISH
+================================= */
+
+#booking input:hover,
+#booking select:hover,
+#booking textarea:hover {
+    border-color: rgba(212, 175, 55, 0.7);
+    background-color: #0e0e0e;
+}
+
+#booking input:disabled,
+#booking select:disabled,
+#booking textarea:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Smooth transitions */
+#booking input,
+#booking select,
+#booking textarea {
+    transition:
+        border-color 0.25s ease,
+        background-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    #booking input,
+    #booking select,
+    #booking textarea,
+    #booking button {
+        transition: none;
+    }
+}
+
+/* =================================
+   VILLA EMARA — LUXURY FOOTER
+================================= */
+
+footer {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        #0c0c0c 0%,
+        #050505 100%
+    );
+    color: #a0a0a0;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 55px 25px 25px;
+    margin-top: 60px;
+}
+
+/* Footer headings */
+footer h2,
+footer h3,
+footer h4 {
+    color: #d4af37;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.04em;
+}
+
+/* Footer text */
+footer p {
+    color: #a0a0a0;
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+/* Footer links */
+footer a {
+    color: #c8c8c8;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+footer a:hover {
+    color: #d4af37;
+}
+
+/* Footer lists */
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-bottom: 10px;
+}
+
+/* Gold separator */
+footer hr {
+    border: 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    margin: 30px 0 20px;
+}
+
+/* Copyright */
+footer .copyright,
+footer .footer-bottom {
+    color: #777;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Social links */
+footer .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 8px 5px 0;
+    transition: color 0.25s ease,
+                transform 0.25s ease;
+}
+
+footer .social-links a:hover {
+    color: #f3e5ab;
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    footer {
+        padding: 38px 18px 22px;
+        margin-top: 40px;
+        text-align: center;
+    }
+
+    footer ul {
+        margin-bottom: 20px;
+    }
+
+    footer .social-links {
+        justify-content: center;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    footer a {
+        transition: none;
+    }
+}
+
+/* =================================
+   VILLA EMARA — FOOTER CONTACT
+================================= */
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.footer-contact h3 {
+    color: #d4af37;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.footer-contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: #c8c8c8;
+    text-decoration: none;
+    font-size: 0.92rem;
+    overflow-wrap: anywhere;
+    transition: color 0.25s ease,
+                transform 0.25s ease;
+}
+
+.footer-contact a:hover {
+    color: #d4af37;
+    transform: translateX(3px);
+}
+
+.footer-contact .footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 50%;
+    color: #d4af37;
+    font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+    .footer-contact {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-contact a {
+        justify-content: center;
+        max-width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .footer-contact a {
+        transition: none;
+    }
+}
+
+/* =================================
+   VILLA EMARA — FOOTER BOTTOM BAR
+================================= */
+
+.footer-bottom {
+    width: 100%;
+    margin-top: 35px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #858585;
+}
+
+.footer-bottom-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-bottom-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 0.78rem;
+    transition: color 0.25s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: #d4af37;
+}
+
+.footer-separator {
+    color: rgba(212, 175, 55, 0.5);
+    font-size: 0.75rem;
+}
+
+.footer-bottom .footer-credit {
+    color: #777;
+    font-style: italic;
+}
+
+.footer-credit span {
+    color: #d4af37;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        margin-top: 28px;
+        padding-top: 20px;
+    }
+
+    .footer-bottom-links {
+        gap: 8px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .footer-bottom-links a {
+        transition: none;
+    }
+}
+
+
+/* =========================================================
+   VILLA EMARA — MOBILE LAYOUT REPAIR
+   Added after existing styles to safely override desktop rules
+========================================================= */
+
+/* Prevent grid/flex children from forcing the page wider than the screen */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    min-width: 0;
+}
+
+img,
+iframe,
+video,
+canvas,
+svg {
+    max-width: 100%;
+}
+
+section,
+header,
+footer,
+main,
+div,
+form {
+    min-width: 0;
+}
+
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+}
+
+/* Keep the desktop layout intact while ensuring sections can shrink */
+.hero-section,
+.hero-content,
+.property-container,
+.gallery-container,
+.amenities-container,
+.location-container,
+.reviews-container,
+.reviews-grid,
+.host-container,
+.booking-container,
+.booking-card,
+footer {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 78px;
+        padding-bottom: 105px;
+    }
+
+    /* Header: logo, language switch and booking button fit on one row */
+    .site-header {
+        left: 0;
+        right: 0;
+        width: 100%;
+        min-height: 78px;
+        padding: 12px 14px;
+        gap: 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo-container {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .logo-text {
+        display: block;
+        font-size: clamp(1.55rem, 6vw, 2.15rem);
+        line-height: 1.15;
+        white-space: nowrap;
+    }
+
+    .main-nav {
+        flex: 0 0 auto;
+        min-width: 0;
+        gap: 8px;
+        justify-content: flex-end;
+    }
+
+    .main-nav a:not(.header-cta-btn) {
+        display: none;
+    }
+
+    .lang-dropdown-container {
+        flex: 0 0 auto;
+    }
+
+    .lang-main-btn {
+        padding: 6px 5px;
+        gap: 4px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    .globe-icon {
+        font-size: 1rem;
+    }
+
+    .header-cta-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 12px;
+        font-size: 0.78rem;
+        letter-spacing: 0.7px;
+        white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero-section {
+        width: 100%;
+        max-width: 100%;
+        padding: 54px 18px 48px;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(3.4rem, 12vw, 5rem);
+        line-height: 1.15;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1.25rem, 5vw, 1.65rem);
+        line-height: 1.5;
+    }
+
+    .hero-desc {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.98rem;
+        line-height: 1.8;
+        overflow-wrap: anywhere;
+    }
+
+    .rating-badge {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 14px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .hero-buttons .btn-primary,
+    .hero-buttons .btn-secondary {
+        width: 100%;
+        min-width: 0;
+        text-align: center;
+        justify-content: center;
+        overflow-wrap: anywhere;
+    }
+
+    /* Main sections: force two-column desktop grids into one mobile column */
+    #property {
+        padding: 54px 18px;
+    }
+
+    #property .property-container {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+        align-items: start;
+    }
+
+    #property .property-left,
+    #property .property-right {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    #property .property-left h2 {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    #property .property-right p {
+        overflow-wrap: anywhere;
+    }
+
+    #property .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    #property .stat-item {
+        min-width: 0;
+        padding: 16px 8px;
+    }
+
+    #property .stat-item p {
+        overflow-wrap: anywhere;
+        font-size: 0.72rem;
+    }
+
+    /* Gallery and amenities */
+    #gallery,
+    #amenities {
+        padding: 54px 18px;
+    }
+
+    .gallery-container,
+    .amenities-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .gallery-container h2,
+    .amenities-container h2,
+    #location h2,
+    #booking h2,
+    #reviews h2 {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        line-height: 1.2;
+        overflow-wrap: anywhere;
+    }
+
+    .filter-buttons {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .filter-btn {
+        max-width: 100%;
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .gallery-grid {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .gallery-item {
+        min-width: 0;
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .amenities-grid {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .amenity-card {
+        min-width: 0;
+        padding: 20px 18px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Location: information and map stack vertically, both full width */
+    #location {
+        padding: 54px 18px;
+    }
+
+    #location .location-container {
+        display: grid;
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        align-items: stretch;
+    }
+
+    #location .location-info,
+    #location .map-container,
+    #location .location-map {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    #location .location-info {
+        overflow-wrap: anywhere;
+    }
+
+    #location .distances-list,
+    #location .distance-item,
+    #location .distance-left {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #location .distance-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    #location .distance-left {
+        flex: 1 1 auto;
+        overflow-wrap: anywhere;
+    }
+
+    #location .distance-km {
+        flex: 0 0 auto;
+        text-align: right;
+    }
+
+    #location .map-container,
+    #location .location-map {
+        min-height: 300px;
+        height: 300px;
+    }
+
+    #location iframe {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 300px !important;
+        min-height: 300px !important;
+        border: 0;
+    }
+
+    /* Host */
+    #host {
+        padding: 54px 18px;
+    }
+
+    #host .host-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #host blockquote {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    /* Reviews */
+    #reviews {
+        padding: 54px 16px;
+    }
+
+    #reviews .reviews-container,
+    #reviews .reviews-grid,
+    #reviews .reviews-list-container,
+    #reviews .review-form-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    #reviews .reviews-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    #reviews .reviews-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #reviews .review-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    /* Booking form: each field gets the full available width */
+    #booking {
+        padding: 54px 16px;
+    }
+
+    #booking .booking-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    #booking .booking-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 22px 16px;
+    }
+
+    #booking .grid-2,
+    #booking .grid-3,
+    #booking .grid-3-btns,
+    #booking .booking-row {
+        display: grid;
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    #booking .form-field,
+    #booking .dates-range-box {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    #booking input,
+    #booking select,
+    #booking textarea {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    #booking .calendar-sync-status,
+    #booking .booking-note,
+    #booking p {
+        overflow-wrap: anywhere;
+    }
+
+    #booking .flatpickr-calendar,
+    #booking .flatpickr-calendar.inline,
+    #booking .flatpickr-calendar.open {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    #booking .flatpickr-rContainer,
+    #booking .flatpickr-days,
+    #booking .dayContainer {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* Fixed bottom action bar: keep both actions visible and above safe-area */
+    .mobile-bottom-bar {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 12px 12px calc(12px + env(safe-area-inset-bottom));
+        gap: 10px;
+        box-sizing: border-box;
+    }
+
+    .mobile-bottom-bar a,
+    .mobile-bottom-bar button {
+        flex: 1 1 0;
+        min-width: 0;
+        max-width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 12px 8px;
+        font-size: clamp(0.78rem, 3.3vw, 0.98rem);
+        line-height: 1.25;
+        overflow-wrap: anywhere;
+    }
+
+    .floating-buttons {
+        right: 12px;
+        bottom: calc(92px + env(safe-area-inset-bottom));
+        gap: 8px;
+    }
+
+    .floating-call,
+    .back-to-top {
+        width: 48px;
+        height: 48px;
+    }
+
+    footer {
+        padding: 38px 18px calc(120px + env(safe-area-inset-bottom));
+        overflow-wrap: anywhere;
+    }
+}
+
+/* Extra narrow phones */
+@media (max-width: 380px) {
+    .site-header {
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 5px;
+    }
+
+    .logo-text {
+        font-size: 1.45rem;
+    }
+
+    .header-cta-btn {
+        padding: 9px 8px;
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+    }
+
+    .lang-main-btn {
+        font-size: 0.74rem;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .mobile-bottom-bar {
+        padding-left: 8px;
+        padding-right: 8px;
+        gap: 7px;
+    }
+
+    .mobile-bottom-bar a,
+    .mobile-bottom-bar button {
+        padding: 11px 5px;
+        font-size: 0.76rem;
+    }
+
+    #property .stats-grid {
+        gap: 8px;
+    }
+}
+
+/* Desktop / tablet: prevent narrow grid children from overflowing */
+@media (min-width: 769px) {
+    #property .property-container,
+    #location .location-container,
+    #reviews .reviews-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    }
+
+    #location .location-container {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    #reviews .reviews-grid {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+}
+
+
+/* Mobile language menu interaction and stacking fix */
+#langDropdownContainer {
+    position: relative;
+    z-index: 5001;
+}
+#langToggleBtn {
+    position: relative;
+    z-index: 5002;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+#langDropdownMenu {
+    z-index: 5003 !important;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+#langDropdownMenu .lang-option {
+    min-height: 42px;
+    touch-action: manipulation;
+}

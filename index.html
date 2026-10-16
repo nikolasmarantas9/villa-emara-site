@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Emara - Μάγγανα, Ξάνθη</title>
+    
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Το δικό μας CSS (ΠΡΕΠΕΙ ΝΑ ΕΙΝΑΙ ΜΕΤΑ ΤΟ FLATPICKR) -->
+    <link rel="stylesheet" href="style.css?v=17">
+</head>
+<body>
+
+    <!-- Header / Πλοήγηση -->
+    <header class="site-header">
+        <div class="logo-container">
+            <span class="logo-text">Villa Emara</span>
+        </div>
+        <nav class="main-nav">
+            <a href="#property" data-translate="nav_about">Το Κατάλυμα</a>
+            <a href="#gallery" data-translate="nav_gallery">Φωτογραφίες</a>
+            <a href="#amenities" data-translate="nav_amenities">Παροχές</a>
+            <a href="#location" data-translate="nav_location">Τοποθεσία</a>
+            <a href="#host" data-translate="nav_host">Ο Οικοδεσπότης</a>
+            <a href="#reviews" data-translate="nav_reviews">Σχόλια</a>
+            
+            <!-- Luxury Language Dropdown -->
+            <div class="lang-dropdown-container" id="langDropdownContainer">
+                <button id="langToggleBtn" class="lang-main-btn">
+                    <span class="globe-icon">🌐</span> 
+                    <span id="currentLangCode">EL</span>
+                </button>
+                <div id="langDropdownMenu" class="lang-dropdown-content">
+                    <a href="#" onclick="setLanguage('el'); return false;" class="lang-option" data-lang="el">
+                        <span class="lang-code">GR</span> <span class="lang-name">Ελληνικά</span>
+                    </a>
+                    <a href="#" onclick="setLanguage('en'); return false;" class="lang-option" data-lang="en">
+                        <span class="lang-code">GB</span> <span class="lang-name">English</span>
+                    </a>
+                    <a href="#" onclick="setLanguage('bg'); return false;" class="lang-option" data-lang="bg">
+                        <span class="lang-code">BG</span> <span class="lang-name">Български</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="#booking" class="header-cta-btn" data-translate="btn_booking">Κράτηση</a>
+        </nav>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="location-badge">
+                <span>📍 ΜΑΓΓΑΝΑ, ΞΑΝΘΗ · ΘΡΑΚΗ</span>
+            </div>
+            <h1 data-translate="hero_title">Villa Emara</h1>
+            <p class="hero-subtitle" data-translate="hero_subtitle">Μια κομψή απόδραση στη ραχοκοκαλιά της Θράκης</p>
+            <p class="hero-desc" data-translate="hero_desc">
+                Μια ιδιωτική βίλα 130 τ.μ. με κήπο, βεράντα και 3 υπνοδωμάτια — ιδανική για οικογένειες και παρέες που αναζητούν χαλάρωση και αυθεντική φιλοξενία.
+            </p>
+            
+            <div class="rating-badge">
+                <span class="stars">⭐ 5/5</span>
+                <span class="rating-text" data-translate="rating_text"><strong>Άριστο</strong> · βαθμολογία επισκεπτών</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#booking" class="btn-primary" data-translate="btn_book_now">Κάντε Κράτηση Τώρα</a>
+                <a href="#property" class="btn-secondary" data-translate="btn_view_villa">Δείτε το Κατάλυμα</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Section: Το Κατάλυμα -->
+    <section id="property" class="property-section">
+        <div class="property-container">
+            <div class="property-left">
+                <span class="welcome-tag" data-translate="prop_welcome">ΚΑΛΩΣ ΗΡΘΑΤΕ</span>
+                <h2 data-translate="prop_main_title">Άνεση, ιδιωτικότητα και σύγχρονη αισθητική</h2>
+            </div>
+
+            <div class="property-right">
+                <p data-translate="prop_p1">
+                    To Villa Emara Mangana είναι ένα κομψό κατάλυμα με κήπο και βεράντα, σχεδιασμένο με προσοχή στη λεπτομέρεια. Προσφέρει έναν ιδανικό χώρο χαλάρωσης για ζευγάρια, οικογένειες ή παρέες που αναζητούν μια ποιοτική εμπειρία διαμονής.
+                </p>
+                <p data-translate="prop_p2">
+                    Οι ευρύχωροι και φωτεινοί χώροι της βίλας είναι πλήρως εξοπλισμένοι, προσφέροντας όλες τις σύγχρονες ανέσεις για μια ευχάριστη και ξεκούραστη διαμονή κάτω από τον ήλιο ή τα αστέρια της Θράκης.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h2>130</h2>
+                        <p data-translate="stat_sqm">ΤΕΤΡΑΓΩΝΙΚΑ (Μ²)</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2>3</h2>
+                        <p data-translate="stat_rooms">ΥΠΝΟΔΩΜΑΤΙΑ</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2>11</h2>
+                        <p data-translate="stat_guests">ΕΠΙΣΚΕΠΤΕΣ</p>
+                    </div>
+                    <div class="stat-item">
+                        <h2>5/5</h2>
+                        <p data-translate="stat_score">ΒΑΘΜΟΛΟΓΙΑ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Section: Η Φωτογραφική Περιήγηση -->
+    <section id="gallery" class="gallery-section">
+        <div class="gallery-container">
+            <h2 data-translate="gallery_title">Η Φωτογραφική Περιήγηση</h2>
+            <p class="gallery-subtitle" data-translate="gallery_subtitle">  φωτογραφίες από την πραγματική καταχώριση</p>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" data-translate="f_all">Όλες</button>
+                <button class="filter-btn" data-filter="garden" data-translate="f_garden">Κήπος & Εξωτερικοί χώροι</button>
+                <button class="filter-btn" data-filter="living" data-translate="f_living">Σαλόνι</button>
+                <button class="filter-btn" data-filter="kitchen" data-translate="f_kitchen">Κουζίνα</button>
+                <button class="filter-btn" data-filter="bath" data-translate="f_bath">Μπάνια</button>
+                <button class="filter-btn" data-filter="bedroom" data-translate="f_bedroom">Υπνοδωμάτια</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="garden"><img src="kipos-1.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-2.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-3.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-4.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-5.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-6.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-7.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-8.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-9.jpg" alt="Κήπος"></div>
+                <div class="gallery-item" data-category="garden"><img src="kipos-10.jpg" alt="Κήπος"></div>
+
+                <div class="gallery-item" data-category="living"><img src="saloni-1.jpg" alt="Σαλόνι"></div>
+                <div class="gallery-item" data-category="living"><img src="saloni-2.jpg" alt="Σαλόνι"></div>
+                <div class="gallery-item" data-category="living"><img src="saloni-3.jpg" alt="Σαλόνι"></div>
+                <div class="gallery-item" data-category="living"><img src="saloni-4.jpg" alt="Σαλόνι"></div>
+                <div class="gallery-item" data-category="living"><img src="saloni-5.jpg" alt="Σαλόνι"></div>
+
+                <div class="gallery-item" data-category="kitchen"><img src="kouzina-1.jpg" alt="Κουζίνα"></div>
+                <div class="gallery-item" data-category="kitchen"><img src="kouzina-2.jpg" alt="Κουζίνα"></div>
+                <div class="gallery-item" data-category="kitchen"><img src="kouzina-3.jpg" alt="Κουζίνα"></div>
+                <div class="gallery-item" data-category="kitchen"><img src="kouzina-4.jpg" alt="Κουζίνα"></div>
+                <div class="gallery-item" data-category="kitchen"><img src="kouzina-5.jpg" alt="Κουζίνα"></div>
+
+                <div class="gallery-item" data-category="bath"><img src="mpanio-1.jpg" alt="Μπάνιο"></div>
+                <div class="gallery-item" data-category="bath"><img src="mpanio-2.jpg" alt="Μπάνιο"></div>
+                <div class="gallery-item" data-category="bath"><img src="mpanio-3.jpg" alt="Μπάνιο"></div>
+                <div class="gallery-item" data-category="bath"><img src="mpanio-4.jpg" alt="Μπάνιο"></div>
+
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-1.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-2.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-3.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-4.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-5.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-6.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-7.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-8.jpg" alt="Υπνοδωμάτιο"></div>
+                <div class="gallery-item" data-category="bedroom"><img src="ypnodomatio-9.jpg" alt="Υπνοδωμάτιο"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">&#10094;</span>
+        <img id="lightboxImg" src="" alt="Zoomed Photo">
+        <span class="lightbox-next">&#10095;</span>
+    </div>
+
+    <!-- 4. Section: Παροχές & Υπηρεσίες -->
+    <section id="amenities" class="amenities-section">
+        <div class="amenities-container">
+            <h2 data-translate="amen_title">Παροχές & Υπηρεσίες</h2>
+            <p class="amenities-subtitle" data-translate="amen_subtitle">Όλα όσα χρειάζεστε για μια ξεκούραστη διαμονή</p>
+
+            <div class="amenities-grid">
+                <div class="amenity-card"><div class="amenity-icon">📶</div><p data-translate="am_wifi">Δωρεάν Wi-Fi υψηλής ταχύτητας</p></div>
+                <div class="amenity-card"><div class="amenity-icon">🚗</div><p data-translate="am_parking">Δωρεάν ιδιωτικός χώρος στάθμευσης</p></div>
+                <div class="amenity-card"><div class="amenity-icon">🐾</div><p data-translate="am_pets">Επιτρέπονται τα κατοικίδια</p></div>
+                <div class="amenity-card"><div class="amenity-icon">❄️</div><p data-translate="am_ac">Κλιματισμός σε όλους τους χώρους</p></div>
+                <div class="amenity-card"><div class="amenity-icon">🍽️</div><p data-translate="am_kitchen">Πλήρως εξοπλισμένη κουζίνα</p></div>
+                <div class="amenity-card"><div class="amenity-icon">🌳</div><p data-translate="am_garden">Κήπος, βεράντα και BBQ</p></div>
+                <div class="amenity-card"><div class="amenity-icon">👨‍👩‍👧‍👦</div><p data-translate="am_rooms">Οικογενειακά δωμάτια</p></div>
+                <div class="amenity-card"><div class="amenity-icon">📺</div><p data-translate="am_tv">Τηλεόραση επίπεδης οθόνης</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Section: Η Τοποθεσία -->
+    <section id="location" class="location-section">
+        <div class="location-container">
+            <div class="location-info">
+                <div class="location-badge"><span>📍 MÁNGANA</span></div>
+                <h2 data-translate="loc_title">Η Τοποθεσία</h2>
+                <p class="location-address" data-translate="loc_address">Μάγγανα, 670 61, Ξάνθη — Θράκη, Ελλάδα</p>
+
+                <div class="distances-list">
+                    <div class="distance-item">
+                        <div class="distance-left"><span class="distance-icon">🌊</span><span data-translate="dist_1">Παραλία Μαγγάνων</span></div>
+                        <span class="distance-km">3.9 km</span>
+                    </div>
+                    <div class="distance-item">
+                        <div class="distance-left"><span class="distance-icon">🌊</span><span data-translate="dist_2">Παραλία Μυρωδάτου</span></div>
+                        <span class="distance-km">6 km</span>
+                    </div>
+                    <div class="distance-item">
+                        <div class="distance-left"><span class="distance-icon">🏛️</span><span data-translate="dist_3">Αρχαιολογικός Χώρος Αβδήρων</span></div>
+                        <span class="distance-km">10 km</span>
+                    </div>
+                    <div class="distance-item">
+                        <div class="distance-left"><span class="distance-icon">🏰</span><span data-translate="dist_4">Παλιά Πόλη Ξάνθης</span></div>
+                        <span class="distance-km">24 km</span>
+                    </div>
+                    <div class="distance-item">
+                        <div class="distance-left"><span class="distance-icon">✈️</span><span data-translate="dist_5">Διεθνής Αερολιμένας Καβάλας</span></div>
+                        <span class="distance-km">47 km</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="location-map">
+<iframe
+    src="https://maps.google.com/maps?q=40.9395487607147,24.871499634452608&z=16&output=embed"
+    width="100%"
+    height="420"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    title="Villa Emara — Google Maps">
+</iframe>
+         </div>
+        </div>
+    </section>
+
+    <!-- 6. Section: Ο Οικοδεσπότης σας -->
+    <section id="host" class="host-section">
+        <div class="host-container">
+            <span class="host-tag" data-translate="host_tag">Ο ΟΙΚΟΔΕΣΠΟΤΗΣ ΣΑΣ</span>
+            <div class="host-avatar"><span>GM</span></div>
+            <h2 class="host-name">Giorgos Marantas</h2>
+            <blockquote class="host-quote" data-translate="host_quote">
+                «Η φιλοξενία για μένα δεν είναι απλώς μια υποχρέωση, αλλά χαρά — στόχος μου είναι να νιώσετε από την πρώτη στιγμή σαν στο σπίτι σας.»
+            </blockquote>
+            <span class="host-languages" data-translate="host_languages">ΓΛΩΣΣΕΣ: ΕΛΛΗΝΙΚΑ, ΑΓΓΛΙΚΑ</span>
+        </div>
+    </section>
+
+    <!-- 7. Section: Σχόλια & Κριτικές -->
+    <section id="reviews" class="reviews-section">
+        <div class="reviews-container">
+            <div class="overall-rating-badge">
+                <span>⭐ 5.0</span> <small>/ 5</small>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="reviews-list-container">
+                    <div id="reviewsList" class="reviews-list">
+
+                    </div>
+                </div>
+
+                <div class="review-form-container">
+                    <h3 data-translate="rev_form_title">Μοιραστείτε την εμπειρία σας</h3>
+                    <p class="review-form-sub" data-translate="rev_form_sub">Γράψτε το δικό σας σχόλιο</p>
+
+                    <form id="addReviewForm" class="review-form">
+                        <div class="review-name-row">
+                            <div class="form-group">
+                                <label for="revName" data-translate="rev_lbl_name">Όνομα</label>
+                                <input type="text" id="revName" name="firstName" placeholder="Το όνομά σας" autocomplete="given-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="revSurname">Επώνυμο</label>
+                                <input type="text" id="revSurname" name="lastName" placeholder="Το επώνυμό σας" autocomplete="family-name" required>
+                            </div>
+                        </div>
+                        <div class="form-group rating-form-group">
+                            <label data-translate="rev_lbl_score">Η βαθμολογία σας: <span id="scoreVal">5</span>/5</label>
+                            <div class="interactive-stars" id="interactiveStars" role="group" aria-label="Επιλέξτε βαθμολογία από 1 έως 5">
+                                <button type="button" class="rating-star is-selected" data-rating="1" aria-label="1 αστέρι" aria-pressed="false">★</button>
+                                <button type="button" class="rating-star is-selected" data-rating="2" aria-label="2 αστέρια" aria-pressed="false">★</button>
+                                <button type="button" class="rating-star is-selected" data-rating="3" aria-label="3 αστέρια" aria-pressed="false">★</button>
+                                <button type="button" class="rating-star is-selected" data-rating="4" aria-label="4 αστέρια" aria-pressed="false">★</button>
+                                <button type="button" class="rating-star is-selected" data-rating="5" aria-label="5 αστέρια" aria-pressed="true">★</button>
+                            </div>
+                            <input type="hidden" id="scoreSlider" value="5">
+                        </div>
+                        <div class="form-group">
+                            <label data-translate="rev_lbl_comment">Το σχόλιό σας</label>
+                            <textarea id="revComment" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-review-btn" data-translate="btn_submit_review">Υποβολή σχολίου</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- 8. Section: Κάντε Κράτηση -->
+    <section id="booking" class="booking-section">
+        <div class="booking-container">
+            <h2 data-translate="book_title">Κάντε Κράτηση</h2>
+            <p class="booking-subtitle" data-translate="booking_subtitle">Επιλέξτε ημερομηνίες και επικοινωνήστε μαζί μας απευθείας</p>
+
+            <form id="bookingForm" class="booking-card" onsubmit="return false;">
+                <div class="booking-row grid-2">
+                    <div class="form-field">
+                        <label data-translate="lbl_fullname">👤 ΟΝΟΜΑΤΕΠΩΝΥΜΟ</label>
+                        <input type="text" id="custName" placeholder="Όνομα και επώνυμο" required data-translate-placeholder="ph_fullname">
+                    </div>
+                    <div class="form-field">
+                        <label data-translate="lbl_phone">📞 ΤΗΛΕΦΩΝΟ</label>
+                        <input type="tel" id="custPhone" placeholder="+30 ..." required>
+                    </div>
+                </div>
+
+                <div class="booking-row grid-3">
+                    <div class="form-field">
+                        <label data-translate="lbl_dates">📅 ΑΦΙΞΗ – ΑΝΑΧΩΡΗΣΗ</label>
+                        <div class="dates-range-box">
+                            <input type="text" id="dateRangePicker" placeholder="Επιλέξτε ημερομηνίες" readonly required data-translate-placeholder="booking_pickDates" aria-describedby="calendarSyncStatus">
+                            <p id="calendarSyncStatus" class="calendar-sync-status" role="status" aria-live="polite">Γίνεται έλεγχος διαθεσιμότητας…</p>
+                            <p id="calendarLastUpdated" class="calendar-last-updated" hidden></p>
+                        </div>
+
+ 
+<p id="calendarSelectionSummary"
+   class="calendar-selection-summary"
+   aria-live="polite">
+    Επίλεξε ημερομηνία άφιξης και αναχώρησης.
+</p>
+
+<div id="calendarLegend"
+     class="calendar-legend"
+     hidden
+     aria-label="Υπόμνημα ημερολογίου">
+    <span>
+        <i class="legend-dot legend-available"></i>
+        Διαθέσιμη
+    </span>
+    <span>
+        <i class="legend-dot legend-selected"></i>
+        Επιλεγμένη
+    </span>
+    <span>
+        <i class="legend-dot legend-unavailable"></i>
+        Μη διαθέσιμη
+    </span>
+</div>
+                       
+                    </div>
+
+                    <div class="form-field">
+                        <label data-translate="lbl_adults">👤 ΕΝΗΛΙΚΕΣ</label>
+                        <div class="counter-box">
+                            <button type="button" id="decAdults" class="cnt-btn">-</button>
+                            <span id="adultsVal" class="cnt-num">2</span>
+                            <button type="button" id="incAdults" class="cnt-btn">+</button>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <label data-translate="lbl_children">👶 ΠΑΙΔΙΑ</label>
+                        <div class="counter-box">
+                            <button type="button" id="decChildren" class="cnt-btn">-</button>
+                            <span id="childrenVal" class="cnt-num">0</span>
+                            <button type="button" id="incChildren" class="cnt-btn">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-header-label">
+                    <span data-translate="contact_notice">ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΓΙΑ ΚΡΑΤΗΣΗ · +30 698 584 1141</span>
+                </div>
+
+                <div class="booking-row grid-3-btns">
+                    <button type="button" id="btnWhatsapp" class="btn-chat btn-wa">
+                        <span class="btn-icon">💬</span> WhatsApp
+                    </button>
+                    <button type="button" id="btnViber" class="btn-chat btn-vb">
+                        <span class="btn-icon">💜</span> Viber
+                    </button>
+                    <a href="tel:+306985841141" class="btn-chat btn-cl">
+                        <span class="btn-icon">📞</span> <span data-translate="call_btn">Κλήση</span>
+                    </a>
+                </div>
+
+                <p class="booking-footer-note" data-translate="booking_footnote">
+                    Κλείστε απευθείας μέσω WhatsApp ή Viber — χωρίς προμήθειες.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Quick Chat Drawer Widget (Κάτω Δεξιά) -->
+    <div class="quick-chat-widget">
+        <div id="chatDrawer" class="chat-drawer">
+            <div class="chat-header">
+                <span data-translate="chat_title">Άμεση Επικοινωνία</span>
+                <span id="chatClose" class="chat-close">&times;</span>
+            </div>
+            <div class="chat-body">
+                <p data-translate="chat_desc">Επικοινωνήστε μαζί μας απευθείας για τιμές και διαθεσιμότητα:</p>
+                <a href="https://wa.me/306985841141" target="_blank" class="chat-option-btn wa-opt">💬 WhatsApp Chat</a>
+                <a href="viber://chat?number=%2B306985841141" class="chat-option-btn vb-opt">🟣 Viber Chat</a>
+                <a href="tel:+306985841141" class="chat-option-btn cl-opt">📞 <span data-translate="call_btn">Κλήση</span></a>
+            </div>
+        </div>
+        <button id="chatToggleBtn" class="chat-floating-btn" title="Επικοινωνία">
+            <span class="chat-icon">💬</span>
+        </button>
+    </div>
+
+    <!-- Mobile Sticky Bottom Booking Bar -->
+    <div class="mobile-bottom-bar">
+        <a href="#booking" class="mob-bar-btn mob-bar-book" data-translate="btn_booking">📅 Κράτηση</a>
+        <a href="https://wa.me/306985841141" target="_blank" class="mob-bar-btn mob-bar-wa">💬 WhatsApp</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Villa Emara</h3>
+                <p>📍 Μάγγανα, Ξάνθη, Θράκη</p>
+                <p>📞 Τηλ: +30 698 584 1141</p>
+                
+<div class="footer-contact">
+    <h3>Επικοινωνία</h3>
+
+    <a href="mailto:g.marantas12@gmail.com">
+        <span class="footer-icon">✉</span>
+        g.marantas12@gmail.com
+    </a>
+
+    <a
+        href="https://www.instagram.com/villa_emara/?utm_source=ig_web_button_share_sheet"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Villa Emara στο Instagram"
+    >
+        <span class="footer-icon">◎</span>
+        Instagram
+    </a>
+
+    <a
+        href="https://www.facebook.com/profile.php?id=61551603401674"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Villa Emara στο Facebook"
+    >
+        <span class="footer-icon">f</span>
+        Facebook
+    </a>
+    
+</div>
+
+           
+<div class="footer-bottom">
+    <p class="footer-copyright">
+        © 2026 Villa Emara. All rights reserved.
+    </p>
+</div>
+
+    </footer>
+    
+
+    <div class="floating-buttons">
+        <a href="tel:+306985841141" class="floating-call" title="Καλέστε μας">📞</a>
+        <a href="#" id="backToTop" class="back-to-top" title="Επιστροφή στην κορυφή">↑</a>
+    </div>
+
+    <!-- Flatpickr Scripts & Localization -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/gr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/bg.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="script.js?v=17"></script>
+</body>
+</html>
