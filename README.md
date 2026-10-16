@@ -70,3 +70,18 @@ I'm continuously developing my skills through hands-on projects and looking for 
 ---
 
 *Built with HTML, CSS, and JavaScript.*
+
+## Website Preview
+
+### Desktop
+
+![Villa Emara Desktop Preview](villa-emara-desktop.png)
+
+### Mobile
+
+![Villa Emara Mobile Preview](villa-emara-mobile.png)
+
+## Live Demo
+
+[Visit Villa Emara](https://nikolasmarantas9.github.io/villa-emara-site/)
+
